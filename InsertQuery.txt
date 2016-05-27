@@ -1,0 +1,13 @@
+
+INSERT INTO agent VALUES (1,'Agent','first','agent@gmail.com','welcome','Madhapur','9030415827','500081');
+
+
+INSERT INTO item VALUES (1,'Domestic','Paper',10),(2,'Domestic','Glass',2),(3,'Domestic','Plastic',3),(5,'Domestic','Iron',13),(6,'Domestic','Aluminium',97),(7,'Domestic','Brass',246),(8,'Domestic','Copper',300);
+
+
+
+INSERT INTO `user` VALUES (1,'abcdek','asdhkajd','anjs1ad@gmail.com','password',1,'adfakjfasfa','9818767878','500081'),(2,'abcdek','asdhkajd','ajs1ad@gmail.com','password',1,'adfakjfasfa','9818761878','500081'),(3,'undefined','undefined','undefined','undefined',1,'undefined','undefined','500081'),(4,'kjbkjbbjk','kbkj','kj','jjgkj',1,'bkjb','kjbkj','500081'),(5,'sdfhjkhb','kjb','kjbkj','vkjv',1,'kjvk','jvkj','500081'),(6,'khkjgjk','kgkjgkg','kjgkjgjgjgkg','kjkjgkjg',1,'kgkjgg','kjgkjgg','500081'),(7,'Test','User','testuser@gmail.com','password',1,'Hitech City madhapur','9067456789','500081'),(8,'Test2','User2','test2user@gmail.com','adlkahd',1,'lkhllhb','8976789876','987987');
+
+INSERT INTO `user_type` VALUES (1,'Domestic'),(2,'Commercial');
+
+

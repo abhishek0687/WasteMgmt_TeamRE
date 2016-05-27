@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html ng-app="ngWaste">
+	<head>
+		<mets charset="utf-8">
+		<title>Angular</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	</head>
+	<body  ng-controller="wasteControllers">
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">WebSiteName</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li class="active"><a href="#">Login</a></li>
+	      <li><a href="#">Page 1</a></li>
+	      <li><a href="#">Page 2</a></li> 
+	      <li><a href="#">Page 3</a></li> 
+	    </ul>
+	  </div>
+	</nav>
+	<div class="listing-form">
+
+		<h3>Add a User</h3>
+		<div class="row listing-form-row">
+			
+			<div class="col-sm-4">
+				<div class="input-group">
+					<span class="input-group-addon">First Name</span>
+					<input type="text" class="form-control" ng-model="newUser.FName">
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="input-group">
+					<span class="input-group-addon">Last Name</span>
+					<input type="text" class="form-control" ng-model="newUser.LName">
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="input-group">
+					<span class="input-group-addon">Email</span>
+					<input type="text" class="form-control" ng-model="newUser.Email">
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="input-group">
+					<span class="input-group-addon">Password</span>
+					<input type="password" class="form-control" ng-model="newUser.Password">
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="input-group">
+					<span class="input-group-addon">Address</span>
+					<input type="text" class="form-control" ng-model="newUser.Address">
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="input-group">
+					<span class="input-group-addon">Pincode</span>
+					<input type="text" class="form-control" ng-model="newUser.Pincode">
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="input-group">
+					<span class="input-group-addon">Phone</span>
+					<input type="text" class="form-control" ng-model="newUser.Phone">
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<button class="btn byn-primary" ng-click="addUser(newUser)">Add User</button>
+
+	<div fusioncharts width="1000" height="400" type="column2d" dataSource="{{dataSource}}">
+  </div>
+
+  <div class="col-md-6 col-md-offset-3">
+    <h2>Login</h2>
+    <form name="form" ng-submit="vm.login()" role="form">
+        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
+            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
+            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+        </div>
+        <div class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a href="#/register" class="btn btn-link">Register</a>
+        </div>
+    </form>
+</div>
+
+
+
+		<!--button ng-click="sayHello()" >Say Hello</button>
+		<h2 ng-show="showMessage==true"> Secrete message</h2-->
+	<div class="well" ng-repeat="crib in user">
+		<h3>{{crib.FName +" "+ crib.LName}}</h3>
+		<p><strong>User Id: </strong> {{ crib.user_id}}</p>
+		<p><strong>Email: </strong> {{ crib.Email}}</p>
+		<p><strong>Phone: </strong> {{ crib.Phone}}</p>
+		<p><strong>Phone: </strong> {{ crib.Password}}</p>
+	</div>
+		
+		
+
+	</body>
+	<script type="text/javascript" src="./scripts/fusioncharts.js"></script>
+	<script type="text/javascript" src="./scripts/angular.min.js"></script>
+	<script type="text/javascript" src="./scripts/angular-fusioncharts.min.js"></script>
+
+	<script type="text/javascript" src="./scripts/fusioncharts.theme.carbon.js"></script>
+	<script type="text/javascript" src="./scripts/fusioncharts.theme.ocean.js"></script>
+	<script type="text/javascript" src="./scripts/fusioncharts.theme.fint.js"></script>
+	<script type="text/javascript" src="./scripts/fusioncharts.theme.zune.js"></script>
+	
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.2/ui-bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.2/ui-bootstrap-tpls.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="./scripts/wasteController.js"></script>
+	<script type="text/javascript" src="./scripts/wasteFactory.js"></script>
+</html>
