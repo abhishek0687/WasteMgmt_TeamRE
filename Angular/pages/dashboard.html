@@ -2,4 +2,42 @@
 	<div class="col-md-10 col-md-offset-1">
 			<div fusioncharts width="1000" height="400" type="column2d" dataSource="{{dataSource}}">
   		</div>
+
+  		<div fusioncharts width="1000" height="400" type="column2d" dataSource="{{monetaryReport}}">
+  		</div>
+
+  		<div fusioncharts width="1000" height="400" type="column2d" dataSource="{{emmisionMetrix}}">
+  		</div>
+  		
+
+  		
+  	<div class="well" >
+			<!--p><strong>Customer: </strong>{{crib.FName +" "+ crib.LName}}</p-->
+			<table>
+			<tr>
+				<th>
+					<strong>Order Id: </strong>
+				</th>
+				<th>
+					<strong>Order Date: </strong>
+				</th>
+				<th>
+					<strong>Order Status: </strong>
+				</th>
+			</tr>
+				<tr ng-repeat="crib in allOrderDetail">
+					<td>
+						<p>{{ crib.order_id}}</p>						
+					</td>
+					<td>
+						<p>{{ crib.DateOfCreation}}</p>
+					</td>
+					<td>
+						<p>{{ crib.order_status == "1" ? "Waiting for pickup" : "Waste Recycled"  }}</p>
+					</td>
+				</tr>
+			</table>
+			
+		</div>
+
 	</div>

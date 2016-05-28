@@ -9,6 +9,8 @@ angular
   	/*$http.defaults.headers.put = {};
   	$http.defaults.headers.patch = {};*/
 		var service = this;
+
+	/*******User ********/
 		service.all=function(){
 			return $http.get(ENDPOINT_URI+'users');
 		};
@@ -17,23 +19,38 @@ angular
 
 		};
 
-		service.recycleItemReport = function(){
-			return $http.get(ENDPOINT_URI+'report/recycledItem');
-		}
-
 		service.validateLogin = function(credentials){
 			return $http.post(ENDPOINT_URI+'login',$httpParamSerializerJQLike(credentials));
 		}
 
+	/******* Report ********/
+		service.recycleItemReport = function(){
+			return $http.get(ENDPOINT_URI+'report/recycledItem');
+		}
+
+		service.monetaryReport = function(){
+			return $http.get(ENDPOINT_URI+'report/monetary');
+		}
+
+		service.environmentMetrix = function(){
+			return $http.get(ENDPOINT_URI+'report/environmentMetrix');
+		}
+
+
+	/******** UI Data *********/
 		service.getItems=function(){
 			return $http.get(ENDPOINT_URI+'items');
 		};
 
+	/****** Order **************/
 		service.placeOrder=function(order){
 			console.log('placing order');
 			return $http.post(ENDPOINT_URI+'order',$httpParamSerializerJQLike(order));
-
 		};
+
+		service.getAllOrder = function(){
+			return $http.get(ENDPOINT_URI+'order');
+		}
 
 	})
 

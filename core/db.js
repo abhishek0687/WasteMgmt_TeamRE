@@ -4,10 +4,8 @@ var settings = require('../dbConfig');
 exports.executeSql = function(sql,callback){
 	var conn = new mysql.createConnection(settings.dbConfig);
 	conn.connect();
-	console.log(sql);
 	conn.query(sql,function(err,recordset){
 		if(err){
-			console.log(err);
 			callback(err,null);
 		}
 		else{

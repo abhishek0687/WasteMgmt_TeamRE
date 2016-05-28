@@ -1,11 +1,11 @@
 //var ngWaste = angular.module('ngWaste',['ngMessages', 'ngRoute']);
 var ngWaste = angular.module('ngWaste',['ngMessages','ngRoute','ui.bootstrap','ng-fusioncharts']);
 
-ngWaste.config(function($routeProvider) {
+ngWaste.config(['$locationProvider', '$routeProvider',function($location, $routeProvider) {
         $routeProvider
 // route for the home page
             .when('/', {
-                templateUrl : 'pages/login.html',
+                templateUrl : 'pages/Schedule.html',
                 controller  : 'wasteControllers'
             })
 
@@ -34,7 +34,7 @@ ngWaste.config(function($routeProvider) {
             .otherwise ({
                 redirectTo: '/about'
             });
-    });
+    }]);
 
 
 

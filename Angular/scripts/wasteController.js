@@ -12,7 +12,32 @@ angular
   		"data": []
 		};
 
+		$scope.monetaryReport = {
+			"chart": {
+    		"caption": "Earning",
+    		"captionFontSize": "20",
+    		"xAxisName": "Items",
+     		"yAxisName": "Amount (In Rs)",
+     		"theme": "ocean"
+    		},
+  		"data": []
+		}
+
+		$scope.emmisionMetrix ={
+			"chart": {
+    		"caption": "CO2 Emmision Saved/Item",
+    		"captionFontSize": "20",
+    		"xAxisName": "Items",
+     		"yAxisName": "CO2 (In Cubic Feet)",
+     		"theme": "ocean"
+    		},
+  		"data": []
+		}
+
+
 		$scope.items;
+		$scope.allOrderDetail;
+		
 		wasteFactory.getItems()
 			.success(function(data){
 				$scope.items=data;
@@ -31,10 +56,37 @@ angular
 				console.log(error);
 			})
 
+		wasteFactory.monetaryReport()
+			.success(function(data){
+				angular.forEach(data,function(v,k){
+					$scope.monetaryReport.data.push({"label":v.ItemName,"value":v.Price});
+				})
+			})
+			.error(function(error){
+				console.log(error);
+		})
+
+		wasteFactory.getAllOrder()
+		 .success(function(data){
+		 		$scope.allOrderDetail = data;
+		 })
+		 .error(function(error){
+		 		console.log(error);
+		 })
+
+		 wasteFactory.environmentMetrix()
+		 	.success(function(data){
+		 			angular.forEach(data,function(v,k){
+						$scope.emmisionMetrix.data.push({"label":v.ItemName,"value":v.EmmisionSaved});
+					})
+		 	})
+		 	.error(function(error){
+		 		console.log(error);
+		 	})
 
 		$scope.placeOrder = function(order) {
 			order.Itype = 'Domestic';
-			console.log(order);
+			
 			wasteFactory.placeOrder(order)
 				.success(function(data){
 					alert("Order successfully placed");
@@ -52,7 +104,6 @@ angular
 				.success(function(data){
 					console.log("data "+data);
 					alert("user successfully regisered");
-					//window.location.href="/users";
 				})
 				.error(function(error){
 					console.log(error);
@@ -64,14 +115,11 @@ angular
 				.success(function(data){
 					if(data!=""){
 						console.log(data);
-						console.log($scope.dataSource);
 					}
 					else{
 						console.log('no data');
 					}
-					console.log($scope.dataSource);
-					redirectTo: '/about';
-					
+									
 				})
 				.error(function(error){
 					console.log(error)
